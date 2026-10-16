@@ -11,10 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CgvRouteImport } from './routes/cgv'
+import { Route as CodeRouteImport } from './routes/code'
 import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ElevesRouteImport } from './routes/eleves'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as ProRouteImport } from './routes/pro'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TheorieRouteImport } from './routes/theorie'
 import { Route as GuidesIndexRouteImport } from './routes/guides.index'
 import { Route as GuidesExamenCodeRouteMarocRouteImport } from './routes/guides.examen-code-route-maroc'
 import { Route as GuidesLogicielGestionAutoEcoleRouteImport } from './routes/guides.logiciel-gestion-auto-ecole'
@@ -28,6 +31,11 @@ const IndexRoute = IndexRouteImport.update({
 const CgvRoute = CgvRouteImport.update({
   id: '/cgv',
   path: '/cgv',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CodeRoute = CodeRouteImport.update({
+  id: '/code',
+  path: '/code',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
@@ -45,9 +53,19 @@ const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
   path: '/mentions-legales',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProRoute = ProRouteImport.update({
+  id: '/pro',
+  path: '/pro',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheorieRoute = TheorieRouteImport.update({
+  id: '/theorie',
+  path: '/theorie',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GuidesIndexRoute = GuidesIndexRouteImport.update({
@@ -76,10 +94,13 @@ const GuidesReformeNarsa2026Route = GuidesReformeNarsa2026RouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/code': typeof CodeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/eleves': typeof ElevesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/pro': typeof ProRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/theorie': typeof TheorieRoute
   '/guides/examen-code-route-maroc': typeof GuidesExamenCodeRouteMarocRoute
   '/guides/logiciel-gestion-auto-ecole': typeof GuidesLogicielGestionAutoEcoleRoute
   '/guides/reforme-narsa-2026': typeof GuidesReformeNarsa2026Route
@@ -88,10 +109,13 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/code': typeof CodeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/eleves': typeof ElevesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/pro': typeof ProRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/theorie': typeof TheorieRoute
   '/guides/examen-code-route-maroc': typeof GuidesExamenCodeRouteMarocRoute
   '/guides/logiciel-gestion-auto-ecole': typeof GuidesLogicielGestionAutoEcoleRoute
   '/guides/reforme-narsa-2026': typeof GuidesReformeNarsa2026Route
@@ -101,10 +125,13 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cgv': typeof CgvRoute
+  '/code': typeof CodeRoute
   '/confidentialite': typeof ConfidentialiteRoute
   '/eleves': typeof ElevesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
+  '/pro': typeof ProRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/theorie': typeof TheorieRoute
   '/guides/examen-code-route-maroc': typeof GuidesExamenCodeRouteMarocRoute
   '/guides/logiciel-gestion-auto-ecole': typeof GuidesLogicielGestionAutoEcoleRoute
   '/guides/reforme-narsa-2026': typeof GuidesReformeNarsa2026Route
@@ -115,10 +142,13 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cgv'
+    | '/code'
     | '/confidentialite'
     | '/eleves'
     | '/mentions-legales'
+    | '/pro'
     | '/sitemap.xml'
+    | '/theorie'
     | '/guides/examen-code-route-maroc'
     | '/guides/logiciel-gestion-auto-ecole'
     | '/guides/reforme-narsa-2026'
@@ -127,10 +157,13 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/cgv'
+    | '/code'
     | '/confidentialite'
     | '/eleves'
     | '/mentions-legales'
+    | '/pro'
     | '/sitemap.xml'
+    | '/theorie'
     | '/guides/examen-code-route-maroc'
     | '/guides/logiciel-gestion-auto-ecole'
     | '/guides/reforme-narsa-2026'
@@ -139,10 +172,13 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/cgv'
+    | '/code'
     | '/confidentialite'
     | '/eleves'
     | '/mentions-legales'
+    | '/pro'
     | '/sitemap.xml'
+    | '/theorie'
     | '/guides/examen-code-route-maroc'
     | '/guides/logiciel-gestion-auto-ecole'
     | '/guides/reforme-narsa-2026'
@@ -152,10 +188,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CgvRoute: typeof CgvRoute
+  CodeRoute: typeof CodeRoute
   ConfidentialiteRoute: typeof ConfidentialiteRoute
   ElevesRoute: typeof ElevesRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
+  ProRoute: typeof ProRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TheorieRoute: typeof TheorieRoute
   GuidesExamenCodeRouteMarocRoute: typeof GuidesExamenCodeRouteMarocRoute
   GuidesLogicielGestionAutoEcoleRoute: typeof GuidesLogicielGestionAutoEcoleRoute
   GuidesReformeNarsa2026Route: typeof GuidesReformeNarsa2026Route
@@ -176,6 +215,13 @@ declare module '@tanstack/react-router' {
       path: '/cgv'
       fullPath: '/cgv'
       preLoaderRoute: typeof CgvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/code': {
+      id: '/code'
+      path: '/code'
+      fullPath: '/code'
+      preLoaderRoute: typeof CodeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/confidentialite': {
@@ -199,11 +245,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentionsLegalesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pro': {
+      id: '/pro'
+      path: '/pro'
+      fullPath: '/pro'
+      preLoaderRoute: typeof ProRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/theorie': {
+      id: '/theorie'
+      path: '/theorie'
+      fullPath: '/theorie'
+      preLoaderRoute: typeof TheorieRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/guides/': {
@@ -240,10 +300,13 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CgvRoute: CgvRoute,
+  CodeRoute: CodeRoute,
   ConfidentialiteRoute: ConfidentialiteRoute,
   ElevesRoute: ElevesRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
+  ProRoute: ProRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TheorieRoute: TheorieRoute,
   GuidesExamenCodeRouteMarocRoute: GuidesExamenCodeRouteMarocRoute,
   GuidesLogicielGestionAutoEcoleRoute: GuidesLogicielGestionAutoEcoleRoute,
   GuidesReformeNarsa2026Route: GuidesReformeNarsa2026Route,
