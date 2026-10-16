@@ -1,0 +1,9 @@
+# 301 redirect: siya9a.pro → codetheorie.ma
+# Explizite Domain-Regeln zuerst, dann Fallback für alle Hosts
+
+https://siya9a.pro/*      https://codetheorie.ma/:splat  301!
+https://www.siya9a.pro/*  https://codetheorie.ma/:splat  301!
+http://siya9a.pro/*       https://codetheorie.ma/:splat  301!
+http://www.siya9a.pro/*   https://codetheorie.ma/:splat  301!
+
+/*                        https://codetheorie.ma/:splat  301!
