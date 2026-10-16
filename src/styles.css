@@ -1,0 +1,263 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+/* ============================================
+ * Finza Design System — shared tokens
+ *
+ * Every Finza product (Siya9a, Mizan, Pro, …)
+ * uses the same neutral base, type scale,
+ * radii and shadows. Only --brand changes
+ * per product to give it its own identity.
+ * ============================================ */
+:root {
+  /* Cloud White neutral base — shared by every Finza product */
+  --finza-ink: oklch(0.20 0.03 260);          /* near-black slate text */
+  --finza-ink-soft: oklch(0.55 0.03 255);     /* slate-400/500 secondary */
+  --finza-paper: oklch(0.99 0.003 255);       /* #fafbfc page bg */
+  --finza-surface: oklch(0.965 0.008 255);    /* #e8ecf1 card/section bg */
+  --finza-line: oklch(0.92 0.01 255);         /* hairline border */
+
+  /* Default brand = Finza blue #3b82f6 */
+  --finza-brand: oklch(0.62 0.19 256);
+  --finza-brand-soft: oklch(0.96 0.03 256);
+  --finza-brand-ink: oklch(1 0 0);
+
+  /* Shared shape language */
+  --finza-radius: 1.25rem;
+  --finza-shadow: 0 1px 2px oklch(0 0 0 / 0.04), 0 12px 32px -12px oklch(0 0 0 / 0.14);
+  --finza-shadow-lift: 0 2px 4px oklch(0 0 0 / 0.05), 0 28px 60px -22px oklch(0 0 0 / 0.28);
+  --finza-shadow-brand: 0 10px 30px -8px color-mix(in oklab, var(--finza-brand) 42%, transparent);
+
+  /* Glanz: soft sheen + brand glow */
+  --finza-sheen: linear-gradient(
+    150deg,
+    color-mix(in oklab, white 85%, transparent) 0%,
+    color-mix(in oklab, white 10%, transparent) 42%,
+    transparent 70%
+  );
+  --finza-glow: radial-gradient(
+    60% 70% at 50% 0%,
+    color-mix(in oklab, var(--finza-brand) 22%, transparent) 0%,
+    transparent 70%
+  );
+
+  /* Typography */
+  --font-display: "Syne", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Glanz-Utilities */
+@utility finza-sheen {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--finza-sheen);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@utility finza-glow {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: var(--finza-glow);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Per-product accent overrides (only the brand color changes)
+ * Palette: cool, calm tones only — no red, no yellow/gold. */
+[data-product="siya9a"] {
+  --finza-brand: oklch(0.65 0.12 220);         /* sky #38bdf8 */
+  --finza-brand-soft: oklch(0.96 0.03 220);
+}
+[data-product="siya9a-pro"] {
+  --finza-brand: oklch(0.58 0.13 175);         /* teal #0d9488 */
+  --finza-brand-soft: oklch(0.96 0.03 175);
+}
+[data-product="mizan"] {
+  --finza-brand: oklch(0.52 0.18 285);         /* indigo #6366f1 */
+  --finza-brand-soft: oklch(0.96 0.03 285);
+}
+[data-product="finza"] {
+  --finza-brand: oklch(0.62 0.19 256);         /* blue #3b82f6 */
+  --finza-brand-soft: oklch(0.96 0.03 256);
+}
+
+@theme inline {
+  --color-finza-ink: var(--finza-ink);
+  --color-finza-ink-soft: var(--finza-ink-soft);
+  --color-finza-paper: var(--finza-paper);
+  --color-finza-surface: var(--finza-surface);
+  --color-finza-line: var(--finza-line);
+  --color-finza-brand: var(--finza-brand);
+  --color-finza-brand-soft: var(--finza-brand-soft);
+  --color-finza-brand-ink: var(--finza-brand-ink);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}

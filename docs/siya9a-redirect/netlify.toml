@@ -1,0 +1,31 @@
+# siya9a.pro — nur noch 301-Weiterleitung auf codetheorie.ma
+[[redirects]]
+  from = "https://siya9a.pro/*"
+  to = "https://codetheorie.ma/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.siya9a.pro/*"
+  to = "https://codetheorie.ma/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://siya9a.pro/*"
+  to = "https://codetheorie.ma/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.siya9a.pro/*"
+  to = "https://codetheorie.ma/:splat"
+  status = 301
+  force = true
+
+# Fallback für alle übrigen Requests
+[[redirects]]
+  from = "/*"
+  to = "https://codetheorie.ma/:splat"
+  status = 301
+  force = true

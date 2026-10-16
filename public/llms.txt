@@ -1,0 +1,43 @@
+# Code Theorie
+
+> Plateforme marocaine pour préparer l'examen du code de la route NARSA 2026 (élèves) et gérer une auto-école conforme DGI, CNSS et NARSA (professionnels). Éditeur : Finza Tech SARL, Casablanca, Maroc.
+
+Code Theorie regroupe deux produits distincts :
+- **Code Theorie / Siya9a Code** — application web offline-first pour les élèves marocains : questions officielles NARSA 2026, examens blancs, audio en darija, français strict.
+- **Siya9a Pro** — logiciel de gestion complet pour auto-écoles : élèves, planning, flotte, facturation DGI, paie CNSS, examens NARSA, WhatsApp intégré.
+
+## Pages
+
+- [Accueil](https://codetheorie.ma/): Hub — choisis ton parcours (élève ou auto-école).
+- [Élèves](https://codetheorie.ma/eleves): Code Theorie pour candidats au permis marocain.
+- [Mentions légales](https://codetheorie.ma/mentions-legales)
+- [CGV](https://codetheorie.ma/cgv)
+- [Confidentialité](https://codetheorie.ma/confidentialite)
+
+## Guides
+
+- [Réforme NARSA 2026 : ce qui change pour les auto-écoles](https://codetheorie.ma/guides/reforme-narsa-2026): rôle de NARSA, obligations DGI/CNSS/dossiers, checklist de préparation.
+- [Examen du code de la route au Maroc](https://codetheorie.ma/guides/examen-code-route-maroc): parcours candidat, qui fait quoi, coûts, méthode d'entraînement.
+- [Choisir un logiciel de gestion d'auto-école](https://codetheorie.ma/guides/logiciel-gestion-auto-ecole): papier/Excel vs généraliste vs spécialisé, 7 critères, formules Siya9a Pro.
+
+
+## Tarifs
+
+- Candidat (Code Theorie) : **49 MAD / 6 mois** — 1 examen blanc gratuit, puis accès complet, paiement unique.
+- Siya9a Pro Start : **5 900 MAD / an** — jusqu'à 20 nouveaux élèves / mois.
+- Siya9a Pro ÉLITE Medium : **9 900 MAD / an** — jusqu'à 50 nouveaux élèves / mois.
+- Siya9a Pro ÉLITE Grand Cabinet : **18 900 MAD / an** — jusqu'à 150 nouveaux élèves / mois, multi-filiales.
+
+## Positionnement NARSA
+
+NARSA est l'autorité officielle des examens du permis au Maroc. Siya9a Pro n'est ni édité ni recommandé par NARSA : c'est un logiciel privé et indépendant, **compatible avec la réforme NARSA 2026**, qui gère l'exploitation de l'auto-école (élèves, planning, facturation, paie), pas les examens officiels.
+
+## Statut
+
+Lancement 2026 · places pilotes limitées. Aucune statistique client n'est publiée à ce jour.
+
+## Contact
+
+- E-mail : support@finza.ma
+- Téléphone / WhatsApp : +212 661 349 492
+- Éditeur : Finza Tech SARL — 67, rue Chevalier Bayard, 5e étage, n° 16, Belvédère, Casablanca (RC 733497, ICE 003970415000091)
