@@ -39,15 +39,15 @@ const FAQ = [
   },
   {
     q: "Combien d'élèves puis-je gérer ?",
-    a: "Illimité. Le prix ne change pas selon le nombre d'élèves, de moniteurs ou de véhicules.",
+    a: "Chaque formule inclut un nombre de nouveaux élèves par mois : 20 (Start), 50 (Medium) ou 150 (Grand Cabinet). Au-delà de 150 nouveaux élèves par mois, contactez-nous.",
   },
   {
     q: "La formation de l'équipe est-elle incluse ?",
-    a: "Oui. On installe, on importe vos données depuis Excel et on forme votre équipe (secrétariat + moniteurs) en 24 à 48h.",
+    a: "Oui. La prise en main en vidéo est incluse dans toutes les formules. La reprise assistée de vos données (import Excel ou documents papier) est incluse à partir de Medium.",
   },
   {
-    q: "Puis-je résilier à tout moment ?",
-    a: "Oui. Aucun engagement en mensuel. En annuel, la remise de 3 mois offerts s'applique dès le début.",
+    q: "Quelle est la durée de l'abonnement ?",
+    a: "Les abonnements sont annuels, en dirhams marocains, toutes taxes comprises. Chaque paiement couvre douze mois ; il n'y a pas d'abonnement mensuel. L'essai de 14 jours est gratuit et sans carte.",
   },
   {
     q: "Ça marche sur mobile ?",
@@ -151,7 +151,7 @@ const B2B_PLANS = [
       "Toutes les fonctionnalités de gestion, sans restriction (élèves, planning, examens, véhicules, moniteurs, finances)",
       "Facturation DGI · TVA 20 % · bulletins de paie CNSS",
       "Portails élèves WhatsApp · audio Darija · contenu NARSA conforme",
-      "Multi-utilisateurs (5 rôles)",
+      "Multi-utilisateurs (directeur, secrétaire, moniteur)",
       "20 nouveaux élèves / mois",
       "Support e-mail & WhatsApp · onboarding vidéo",
     ],
@@ -178,9 +178,9 @@ const B2B_PLANS = [
     ideal: "jusqu'à 150 nouveaux élèves / mois · multi-filiales",
     features: [
       "Tout du plan Medium",
-      "150 nouveaux élèves / mois (+10 MAD / élève au-delà)",
+      "150 nouveaux élèves / mois (au-delà : nous contacter)",
       "Multi-filiales · tableau de bord consolidé",
-      "Account manager dédié · SLA 99,9 %",
+      "Account manager dédié · objectif de disponibilité 99,5 %",
       "Onboarding sur mesure",
     ],
     cta: "Nous contacter",
@@ -427,7 +427,7 @@ function EcolesSection() {
               Un plan pour chaque taille d'auto-école
             </h3>
             <p className="mx-auto mt-3 max-w-2xl text-[15px] text-finza-ink-soft">
-              14 jours d'essai gratuit sur tous les plans. Aucune carte requise. Sans engagement.
+              14 jours d'essai gratuit sur tous les plans, sans carte. Abonnement annuel ensuite, toutes taxes comprises. Sur app.siya9apro.ma, choisissez « Créer un compte », puis confirmez votre e-mail.
             </p>
           </div>
 
@@ -477,7 +477,7 @@ function EcolesSection() {
                   ))}
                 </ul>
                 <a
-                  href={plan.name === "ÉLITE Grand Cabinet" ? "https://wa.me/212661349492?text=Bonjour%20Siya9a%20Pro" : "https://app.siya9apro.ma/register"}
+                  href={plan.name === "ÉLITE Grand Cabinet" ? "https://wa.me/212661349492?text=Bonjour%20Siya9a%20Pro" : "https://app.siya9apro.ma/"}
                   target={plan.name === "ÉLITE Grand Cabinet" ? "_blank" : undefined}
                   rel={plan.name === "ÉLITE Grand Cabinet" ? "noopener noreferrer" : undefined}
                   className={
