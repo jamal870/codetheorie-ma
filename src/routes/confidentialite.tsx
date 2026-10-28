@@ -17,9 +17,10 @@ export const Route = createFileRoute("/confidentialite")({
         content: "Données collectées, cookies, conservation et droits d'accès selon la loi 09-08.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://codetheorie.ma/confidentialite" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "/confidentialite" }],
+    links: [{ rel: "canonical", href: "https://codetheorie.ma/confidentialite" }],
   }),
   component: Confidentialite,
 });
@@ -28,7 +29,7 @@ function Confidentialite() {
   return (
     <LegalLayout
       title="Politique de confidentialité"
-      intro="Finza Tech respecte votre vie privée et se conforme à la loi marocaine 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, ainsi qu'au RGPD européen."
+      intro="Cette politique de confidentialité décrit les données collectées sur codetheorie.ma, leur hébergement, leur durée de conservation et vos droits. Finza Tech respecte votre vie privée et se conforme à la loi marocaine 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, ainsi qu'au RGPD européen."
     >
       <LegalBlock heading="Données collectées">
         <p>

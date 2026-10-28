@@ -17,10 +17,10 @@ import {
   Video,
 } from "lucide-react";
 import { FinzaHeader, FinzaFooter } from "@/components/finza";
-import proDashboard from "@/assets/screenshots/pro-dashboard.jpeg";
+import proDashboard from "@/assets/screenshots/pro-dashboard.webp";
 
 const SITE_URL = "https://codetheorie.ma";
-const TITLE = "Codetheorie — Logiciel auto-école & code de la route Maroc 2026";
+const TITLE = "Codetheorie — Logiciel auto-école & code de la route Maroc";
 const DESCRIPTION =
   "Logiciel auto-école & entraînement code de la route Maroc 2026. Formules Siya9a Pro pour auto-écoles dès 5 900 MAD/an. Accès candidat complet à 49 MAD.";
 
@@ -79,8 +79,12 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
           name: "Codetheorie",
+          url: `${SITE_URL}/`,
+          description: DESCRIPTION,
+          image: `${SITE_URL}/og-codetheorie.jpg`,
           applicationCategory: "BusinessApplication",
           operatingSystem: "Web, Android, iOS",
+          inLanguage: "fr-MA",
           offers: {
             "@type": "AggregateOffer",
             lowPrice: "5900",
@@ -88,7 +92,12 @@ export const Route = createFileRoute("/")({
             priceCurrency: "MAD",
             availability: "https://schema.org/InStock",
           },
-          publisher: { "@type": "Organization", name: "Finza Tech", url: "https://finza.ma" },
+          publisher: {
+            "@type": "Organization",
+            name: "Finza Tech",
+            url: "https://finza.ma",
+            logo: `${SITE_URL}/finza-logo.png`,
+          },
         }),
       },
       {
@@ -667,8 +676,8 @@ function Ecosystem() {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
           {[
-            { name: "Codetheorie", tag: "Entraînement code de la route", href: "#" },
-            { name: "Siya9a Pro", tag: "Gestion auto-école", href: "https://app.siya9apro.ma" },
+            { name: "Codetheorie", tag: "Entraînement code de la route", href: "/eleves" },
+            { name: "Siya9a Pro", tag: "Gestion auto-école", href: "https://siya9apro.ma" },
           ].map((p) => (
             <a
               key={p.name}

@@ -16,16 +16,20 @@ export const Route = createFileRoute("/cgv")({
         content: "Prix, paiement, durée, résiliation et support des abonnements Siya9a Pro.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://codetheorie.ma/cgv" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "/cgv" }],
+    links: [{ rel: "canonical", href: "https://codetheorie.ma/cgv" }],
   }),
   component: Cgv,
 });
 
 function Cgv() {
   return (
-    <LegalLayout title="Conditions Générales de Vente">
+    <LegalLayout
+      title="Conditions Générales de Vente"
+      intro="Les présentes conditions générales de vente (CGV) encadrent la souscription aux logiciels Siya9a Pro et Code Theorie édités par Finza Tech. Elles précisent les prix, les modalités de paiement, la durée des abonnements, les conditions de résiliation, le support inclus et le droit applicable."
+    >
       <LegalBlock heading="1. Objet">
         <p>
           Les présentes CGV régissent la souscription aux logiciels SaaS Siya9a Pro (gestion
