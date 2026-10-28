@@ -5,6 +5,10 @@ export function renderErrorPage(): string {
     <meta charset="utf-8" />
     <title>Cette page n'a pas pu être chargée — Code Theorie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta property="og:title" content="Cette page n'a pas pu être chargée — Code Theorie" />
+    <meta property="og:description" content="Une erreur temporaire s'est produite sur codetheorie.ma. Réessayez dans un instant ou revenez à l'accueil." />
+    <meta property="og:image" content="https://codetheorie.ma/og-codetheorie.jpg" />
     <style>
       body { font: 15px/1.5 system-ui, -apple-system, sans-serif; background: #fafafa; color: #111; display: grid; place-items: center; min-height: 100vh; margin: 0; padding: 1.5rem; }
       .card { max-width: 28rem; width: 100%; text-align: center; padding: 2rem; }

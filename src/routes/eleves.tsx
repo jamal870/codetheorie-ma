@@ -6,11 +6,12 @@ import registerShot from "@/assets/screenshots/02-register.webp";
 import dashboardShot from "@/assets/screenshots/03-dashboard.webp";
 import seriesShot from "@/assets/screenshots/04-series.webp";
 import quizShot from "@/assets/screenshots/05-quiz.webp";
+import { PUBLISHER } from "@/lib/schema";
 
 const THEME_COLOR = "#38bdf8";
 
 const PAGE_URL = "https://codetheorie.ma/eleves";
-const TITLE = "Code Theorie — Code de la route Maroc NARSA 2026 (FR/Darija)";
+const TITLE = "Code Theorie — Code de la route Maroc NARSA 2026, darija";
 const DESCRIPTION =
   "1480 questions NARSA 2026, examens blancs illimités, français + darija, hors-ligne. 1 examen blanc gratuit, puis 49 MAD / 6 mois. Sans abonnement, sans carte.";
 
@@ -130,13 +131,14 @@ export const Route = createFileRoute("/eleves")({
           description: DESCRIPTION,
           image: "https://codetheorie.ma/og-codetheorie.jpg",
           inLanguage: ["fr-MA", "ar-MA"],
-          offers: { "@type": "Offer", price: "49", priceCurrency: "MAD", availability: "https://schema.org/InStock" },
-          publisher: {
-            "@type": "Organization",
-            name: "Finza Tech",
-            url: "https://finza.ma",
-            logo: "https://codetheorie.ma/finza-logo.png",
+          offers: {
+            "@type": "Offer",
+            price: "49",
+            priceCurrency: "MAD",
+            availability: "https://schema.org/InStock",
+            url: REGISTER_URL,
           },
+          publisher: PUBLISHER,
         }),
       },
       {

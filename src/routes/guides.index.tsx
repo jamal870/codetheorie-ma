@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FinzaHeader, FinzaFooter, FinzaCard } from "@/components/finza";
+import { PUBLISHER } from "@/lib/schema";
 
 const PAGE_URL = "https://codetheorie.ma/guides";
 const TITLE = "Guides auto-école & code de la route au Maroc — Code Theorie";
@@ -68,8 +69,7 @@ export const Route = createFileRoute("/guides/")({
           name: TITLE,
           description: DESCRIPTION,
           inLanguage: "fr-MA",
-          isPartOf: { "@type": "WebSite", name: "Code Theorie", url: "https://codetheorie.ma" },
-          publisher: { "@type": "Organization", name: "Finza Tech", url: "https://finza.ma" },
+          publisher: PUBLISHER,
           mainEntity: {
             "@type": "ItemList",
             itemListElement: GUIDES.map((g, i) => ({
@@ -77,7 +77,7 @@ export const Route = createFileRoute("/guides/")({
               position: i + 1,
               name: g.title,
               description: g.desc,
-              url: `https://codetheorie.ma${g.to}`,
+              item: `https://codetheorie.ma${g.to}`,
             })),
           },
         }),
@@ -147,6 +147,31 @@ function GuidesIndex() {
           </div>
 
           <section className="mt-14 max-w-2xl">
+            <h2 className="text-xl font-bold text-finza-ink sm:text-2xl">
+              À qui s'adressent ces guides
+            </h2>
+            <div className="mt-3 space-y-3 text-sm leading-relaxed text-finza-ink-soft">
+              <p>
+                <strong className="text-finza-ink">Aux exploitants d'auto-école</strong> qui
+                veulent comprendre ce que la modernisation des démarches NARSA change concrètement
+                pour leur établissement, quelles obligations administratives tenir à jour et
+                comment comparer les outils de gestion avant de s'engager pour une année.
+              </p>
+              <p>
+                <strong className="text-finza-ink">Aux candidats au permis</strong> qui préparent
+                l'épreuve théorique du code de la route et cherchent une explication claire du
+                déroulé de l'examen, de son coût réel et d'une méthode de préparation qui tient en
+                quelques semaines.
+              </p>
+              <p>
+                <strong className="text-finza-ink">Aux moniteurs</strong> qui accompagnent les
+                élèves entre les séances et veulent des repères fiables à leur transmettre : ce que
+                dit la réglementation, ce qui relève de l'auto-école et ce qui relève de NARSA.
+              </p>
+            </div>
+          </section>
+
+          <section className="mt-12 max-w-2xl">
             <h2 className="text-xl font-bold text-finza-ink sm:text-2xl">
               Comment ces guides sont rédigés
             </h2>

@@ -16,7 +16,6 @@ import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
 import { Route as ElevesRouteImport } from './routes/eleves'
 import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as ProRouteImport } from './routes/pro'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TheorieRouteImport } from './routes/theorie'
 import { Route as GuidesIndexRouteImport } from './routes/guides.index'
 import { Route as GuidesExamenCodeRouteMarocRouteImport } from './routes/guides.examen-code-route-maroc'
@@ -58,11 +57,6 @@ const ProRoute = ProRouteImport.update({
   path: '/pro',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TheorieRoute = TheorieRouteImport.update({
   id: '/theorie',
   path: '/theorie',
@@ -99,7 +93,6 @@ export interface FileRoutesByFullPath {
   '/eleves': typeof ElevesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/pro': typeof ProRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/theorie': typeof TheorieRoute
   '/guides/examen-code-route-maroc': typeof GuidesExamenCodeRouteMarocRoute
   '/guides/logiciel-gestion-auto-ecole': typeof GuidesLogicielGestionAutoEcoleRoute
@@ -114,7 +107,6 @@ export interface FileRoutesByTo {
   '/eleves': typeof ElevesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/pro': typeof ProRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/theorie': typeof TheorieRoute
   '/guides/examen-code-route-maroc': typeof GuidesExamenCodeRouteMarocRoute
   '/guides/logiciel-gestion-auto-ecole': typeof GuidesLogicielGestionAutoEcoleRoute
@@ -130,7 +122,6 @@ export interface FileRoutesById {
   '/eleves': typeof ElevesRoute
   '/mentions-legales': typeof MentionsLegalesRoute
   '/pro': typeof ProRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/theorie': typeof TheorieRoute
   '/guides/examen-code-route-maroc': typeof GuidesExamenCodeRouteMarocRoute
   '/guides/logiciel-gestion-auto-ecole': typeof GuidesLogicielGestionAutoEcoleRoute
@@ -147,7 +138,6 @@ export interface FileRouteTypes {
     | '/eleves'
     | '/mentions-legales'
     | '/pro'
-    | '/sitemap.xml'
     | '/theorie'
     | '/guides/examen-code-route-maroc'
     | '/guides/logiciel-gestion-auto-ecole'
@@ -162,7 +152,6 @@ export interface FileRouteTypes {
     | '/eleves'
     | '/mentions-legales'
     | '/pro'
-    | '/sitemap.xml'
     | '/theorie'
     | '/guides/examen-code-route-maroc'
     | '/guides/logiciel-gestion-auto-ecole'
@@ -177,7 +166,6 @@ export interface FileRouteTypes {
     | '/eleves'
     | '/mentions-legales'
     | '/pro'
-    | '/sitemap.xml'
     | '/theorie'
     | '/guides/examen-code-route-maroc'
     | '/guides/logiciel-gestion-auto-ecole'
@@ -193,7 +181,6 @@ export interface RootRouteChildren {
   ElevesRoute: typeof ElevesRoute
   MentionsLegalesRoute: typeof MentionsLegalesRoute
   ProRoute: typeof ProRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TheorieRoute: typeof TheorieRoute
   GuidesExamenCodeRouteMarocRoute: typeof GuidesExamenCodeRouteMarocRoute
   GuidesLogicielGestionAutoEcoleRoute: typeof GuidesLogicielGestionAutoEcoleRoute
@@ -252,13 +239,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/theorie': {
       id: '/theorie'
       path: '/theorie'
@@ -305,7 +285,6 @@ const rootRouteChildren: RootRouteChildren = {
   ElevesRoute: ElevesRoute,
   MentionsLegalesRoute: MentionsLegalesRoute,
   ProRoute: ProRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TheorieRoute: TheorieRoute,
   GuidesExamenCodeRouteMarocRoute: GuidesExamenCodeRouteMarocRoute,
   GuidesLogicielGestionAutoEcoleRoute: GuidesLogicielGestionAutoEcoleRoute,

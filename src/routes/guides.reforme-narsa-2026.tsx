@@ -18,7 +18,7 @@ const HEADLINE = "Réforme NARSA 2026 : ce qui change pour les auto-écoles au M
 const UPDATED = "août 2026";
 const UPDATED_ISO = "2026-08-01";
 const DESCRIPTION =
-  "Qui est NARSA, ce que couvre la réforme 2026, les obligations d'une auto-école marocaine (DGI, CNSS, dossiers élèves) et une checklist concrète de préparation.";
+  "Qui est NARSA, ce que couvre la réforme 2026, les obligations d'une auto-école marocaine (DGI, CNSS, dossiers élèves) et une checklist de préparation.";
 
 const FAQ: GuideFaqItem[] = [
   {
