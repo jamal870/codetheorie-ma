@@ -5,12 +5,19 @@ import {
   GuideTable,
   GuideFaq,
   faqSchema,
+  articleSchema,
+  breadcrumbSchema,
   type GuideFaqItem,
 } from "@/components/finza/GuideLayout";
 
-const TITLE = "Examen du code de la route au Maroc : déroulé, coût et préparation";
+const PAGE_URL = "https://codetheorie.ma/guides/examen-code-route-maroc";
+/** <title> (≤ 60 caractères) ; le H1 complet est HEADLINE. */
+const TITLE = "Examen du code au Maroc : déroulé, coût et préparation";
+const HEADLINE = "Examen du code de la route au Maroc : déroulé, coût et préparation";
 const DESCRIPTION =
-  "Comment se passe l'épreuve théorique du permis au Maroc : inscription en auto-école, déroulé de l'examen NARSA, catégories de permis, coûts et méthode d'entraînement.";
+  "Comment se passe l'épreuve théorique du permis au Maroc : inscription en auto-école, déroulé de l'examen NARSA, catégories de permis, coût et préparation.";
+const UPDATED = "août 2026";
+const UPDATED_ISO = "2026-08-01";
 
 const FAQ: GuideFaqItem[] = [
   {
@@ -40,13 +47,39 @@ export const Route = createFileRoute("/guides/examen-code-route-maroc")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: TITLE },
+      { property: "og:title", content: HEADLINE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: PAGE_URL },
+      { property: "article:modified_time", content: UPDATED_ISO },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "https://codetheorie.ma/guides/examen-code-route-maroc" }],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema(FAQ)) }],
+    links: [{ rel: "canonical", href: PAGE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          articleSchema({
+            url: PAGE_URL,
+            headline: HEADLINE,
+            description: DESCRIPTION,
+            section: "Candidats",
+            modified: UPDATED_ISO,
+          }),
+        ),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbSchema([
+            { name: "Accueil", url: "https://codetheorie.ma/" },
+            { name: "Guides", url: "https://codetheorie.ma/guides" },
+            { name: HEADLINE, url: PAGE_URL },
+          ]),
+        ),
+      },
+      { type: "application/ld+json", children: JSON.stringify(faqSchema(FAQ)) },
+    ],
   }),
   component: Page,
 });
@@ -55,9 +88,9 @@ function Page() {
   return (
     <GuideLayout
       eyebrow="Candidats"
-      title={TITLE}
-      intro="L'examen du permis de conduire au Maroc comporte une épreuve théorique (le « code ») puis une épreuve pratique. Ce guide explique le parcours du candidat, ce qui dépend de l'auto-école, ce qui dépend de NARSA, et comment s'entraîner sérieusement."
-      updated="août 2026"
+      title={HEADLINE}
+      intro="L'examen du permis de conduire au Maroc comporte une épreuve théorique (le « code ») puis une épreuve pratique. Ce guide détaille le déroulé de l'épreuve, son coût réel, ce qui dépend de l'auto-école, ce qui dépend de NARSA, et la préparation qui permet de réussir du premier coup."
+      updated={UPDATED}
       cta={{
         label: "Commencer l'entraînement — 49 MAD",
         href: "/eleves",

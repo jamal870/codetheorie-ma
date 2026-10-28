@@ -5,11 +5,18 @@ import {
   GuideTable,
   GuideFaq,
   faqSchema,
+  articleSchema,
+  breadcrumbSchema,
   type GuideFaqItem,
 } from "@/components/finza/GuideLayout";
 import { COMPANY } from "@/components/finza";
 
-const TITLE = "Réforme NARSA 2026 : ce qui change pour les auto-écoles au Maroc";
+const PAGE_URL = "https://codetheorie.ma/guides/reforme-narsa-2026";
+/** <title> (≤ 60 caractères) ; le H1 complet est HEADLINE. */
+const TITLE = "Réforme NARSA 2026 : ce qui change pour les auto-écoles";
+const HEADLINE = "Réforme NARSA 2026 : ce qui change pour les auto-écoles au Maroc";
+const UPDATED = "août 2026";
+const UPDATED_ISO = "2026-08-01";
 const DESCRIPTION =
   "Qui est NARSA, ce que couvre la réforme 2026, les obligations d'une auto-école marocaine (DGI, CNSS, dossiers élèves) et une checklist concrète de préparation.";
 
@@ -41,13 +48,39 @@ export const Route = createFileRoute("/guides/reforme-narsa-2026")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: TITLE },
+      { property: "og:title", content: HEADLINE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: PAGE_URL },
+      { property: "article:modified_time", content: UPDATED_ISO },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "https://codetheorie.ma/guides/reforme-narsa-2026" }],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema(FAQ)) }],
+    links: [{ rel: "canonical", href: PAGE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          articleSchema({
+            url: PAGE_URL,
+            headline: HEADLINE,
+            description: DESCRIPTION,
+            section: "Réglementation",
+            modified: UPDATED_ISO,
+          }),
+        ),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbSchema([
+            { name: "Accueil", url: "https://codetheorie.ma/" },
+            { name: "Guides", url: "https://codetheorie.ma/guides" },
+            { name: HEADLINE, url: PAGE_URL },
+          ]),
+        ),
+      },
+      { type: "application/ld+json", children: JSON.stringify(faqSchema(FAQ)) },
+    ],
   }),
   component: Page,
 });
@@ -56,9 +89,9 @@ function Page() {
   return (
     <GuideLayout
       eyebrow="Réglementation"
-      title={TITLE}
+      title={HEADLINE}
       intro="NARSA (Agence Nationale de la Sécurité Routière) est l'autorité publique marocaine en charge de la sécurité routière, des examens du permis et des titres de conduite. Ce guide résume son rôle, ce que la modernisation en cours change concrètement pour une auto-école, et comment s'y préparer sans attendre."
-      updated="août 2026"
+      updated={UPDATED}
       cta={{
         label: "Postuler pour une place pilote Siya9a Pro",
         href: COMPANY.whatsappUrl,
@@ -156,9 +189,9 @@ function Page() {
           démarche officielle et ne bénéficie d'aucune homologation publique.
         </p>
         <p>
-          Détail des fonctionnalités et tarifs annuels sur la page{" "}
+          Détail des fonctionnalités et tarifs annuels sur{" "}
           <Link to="/" className="font-semibold text-finza-brand">
-            Auto-écoles
+            la page d'accueil Siya9a Pro
           </Link>
           . Les candidats au permis trouveront l'entraînement au code sur{" "}
           <Link to="/eleves" className="font-semibold text-finza-brand">

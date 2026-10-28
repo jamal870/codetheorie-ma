@@ -5,7 +5,10 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Sicherheits-Header (securityheaders.com)
+# Sicherheits-Header (securityheaders.com) für die statischen Dateien in dist/.
+# Die SSR-HTML-Antworten bekommen ihre Header in src/server.ts; dort trägt die CSP
+# zusätzlich einen Nonce pro Anfrage statt 'unsafe-inline' für Skripte. Für statische
+# Assets (JS/CSS/Bilder) ist script-src ohne Wirkung, die Liste bleibt sonst identisch.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -16,5 +19,16 @@
     Permissions-Policy = "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=(), interest-cohort=()"
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Resource-Policy = "same-origin"
-    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self'; manifest-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; manifest-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests"
+
+# Selbst gehostete Schriften und Bilder dürfen lange gecacht werden (Dateinamen sind stabil).
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/.well-known/security.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
 

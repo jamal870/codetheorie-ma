@@ -5,13 +5,20 @@ import {
   GuideTable,
   GuideFaq,
   faqSchema,
+  articleSchema,
+  breadcrumbSchema,
   type GuideFaqItem,
 } from "@/components/finza/GuideLayout";
 import { COMPANY } from "@/components/finza";
 
-const TITLE = "Logiciel de gestion d'auto-école au Maroc : comment choisir en 2026";
+const PAGE_URL = "https://codetheorie.ma/guides/logiciel-gestion-auto-ecole";
+/** <title> (≤ 60 caractères) ; le H1 complet est HEADLINE. */
+const TITLE = "Logiciel de gestion d'auto-école au Maroc : comment choisir";
+const HEADLINE = "Logiciel de gestion d'auto-école au Maroc : comment choisir en 2026";
 const DESCRIPTION =
-  "Papier/Excel, logiciel généraliste ou solution spécialisée marocaine : critères de choix, coût réel, facturation DGI, paie CNSS et grille de comparaison pour auto-écoles.";
+  "Papier/Excel, logiciel généraliste ou solution spécialisée : critères de choix, coût réel, facturation DGI, paie CNSS et grille de comparaison pour auto-écoles.";
+const UPDATED = "août 2026";
+const UPDATED_ISO = "2026-08-01";
 
 const FAQ: GuideFaqItem[] = [
   {
@@ -41,15 +48,39 @@ export const Route = createFileRoute("/guides/logiciel-gestion-auto-ecole")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: TITLE },
+      { property: "og:title", content: HEADLINE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: PAGE_URL },
+      { property: "article:modified_time", content: UPDATED_ISO },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [
-      { rel: "canonical", href: "https://codetheorie.ma/guides/logiciel-gestion-auto-ecole" },
+    links: [{ rel: "canonical", href: PAGE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          articleSchema({
+            url: PAGE_URL,
+            headline: HEADLINE,
+            description: DESCRIPTION,
+            section: "Comparatif",
+            modified: UPDATED_ISO,
+          }),
+        ),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbSchema([
+            { name: "Accueil", url: "https://codetheorie.ma/" },
+            { name: "Guides", url: "https://codetheorie.ma/guides" },
+            { name: HEADLINE, url: PAGE_URL },
+          ]),
+        ),
+      },
+      { type: "application/ld+json", children: JSON.stringify(faqSchema(FAQ)) },
     ],
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema(FAQ)) }],
   }),
   component: Page,
 });
@@ -58,9 +89,9 @@ function Page() {
   return (
     <GuideLayout
       eyebrow="Comparatif"
-      title={TITLE}
+      title={HEADLINE}
       intro="Une auto-école marocaine jongle entre dossiers élèves, planning des moniteurs, flotte, facturation DGI et paie CNSS. Ce guide compare les trois approches possibles et donne une grille de décision honnête — y compris les cas où un logiciel spécialisé n'est pas nécessaire."
-      updated="août 2026"
+      updated={UPDATED}
       cta={{
         label: "Postuler pour une place pilote Siya9a Pro",
         href: COMPANY.whatsappUrl,
@@ -143,9 +174,9 @@ function Page() {
         <p>
           Siya9a Pro est édité par {COMPANY.name} (Casablanca). C'est un logiciel privé, indépendant
           de NARSA, compatible avec la réforme NARSA 2026 : il gère l'exploitation, pas les examens.
-          Le détail des fonctionnalités est sur la page{" "}
+          Le détail des fonctionnalités est sur{" "}
           <Link to="/" className="font-semibold text-finza-brand">
-            Auto-écoles
+            la page d'accueil Siya9a Pro
           </Link>{" "}
           ; le contexte réglementaire est traité dans le{" "}
           <Link to="/guides/reforme-narsa-2026" className="font-semibold text-finza-brand">

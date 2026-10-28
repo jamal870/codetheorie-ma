@@ -27,7 +27,7 @@ export function GuideLayout({ eyebrow, title, intro, updated, children, cta }: G
         logoTo="/"
         navLinks={[
           { label: "Guides", to: "/guides" },
-          { label: "Auto-écoles", to: "/" },
+          { label: "Accueil", to: "/" },
           { label: "Candidats", to: "/eleves" },
         ]}
         hideProductSwitcher
@@ -137,6 +137,54 @@ export function GuideFaq({ items }: { items: GuideFaqItem[] }) {
       ))}
     </div>
   );
+}
+
+const SITE_URL = "https://codetheorie.ma";
+const PUBLISHER = {
+  "@type": "Organization",
+  name: "Finza Tech",
+  url: "https://finza.ma",
+  logo: { "@type": "ImageObject", url: `${SITE_URL}/finza-logo.png` },
+};
+
+/** Article schema for a guide (recommended fields: headline, dates, author, publisher, image). */
+export function articleSchema(a: {
+  url: string;
+  headline: string;
+  description: string;
+  section: string;
+  /** ISO date (YYYY-MM-DD) of the last substantive update. */
+  modified: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    mainEntityOfPage: { "@type": "WebPage", "@id": a.url },
+    url: a.url,
+    headline: a.headline,
+    description: a.description,
+    articleSection: a.section,
+    inLanguage: "fr-MA",
+    datePublished: a.modified,
+    dateModified: a.modified,
+    image: `${SITE_URL}/og-codetheorie.jpg`,
+    author: { "@type": "Organization", name: "Finza Tech", url: "https://finza.ma" },
+    publisher: PUBLISHER,
+  };
+}
+
+/** Breadcrumb schema: Accueil › Guides › <page>. */
+export function breadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
 }
 
 export function faqSchema(items: GuideFaqItem[]) {

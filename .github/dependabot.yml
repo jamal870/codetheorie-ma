@@ -1,0 +1,22 @@
+# Surveillance automatique des dépendances (audit sécurité, 2026-10).
+# Dependabot ouvre une PR par mise à jour ; les correctifs de sécurité
+# sont proposés dès publication de l'avis.
+version: 2
+updates:
+  - package-ecosystem: "bun"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Africa/Casablanca"
+    open-pull-requests-limit: 5
+    groups:
+      tanstack:
+        patterns:
+          - "@tanstack/*"
+      radix:
+        patterns:
+          - "@radix-ui/*"
+      dev-tooling:
+        dependency-type: "development"

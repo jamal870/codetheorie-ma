@@ -18,16 +18,17 @@ export const Route = createFileRoute("/mentions-legales")({
         content: "Identité de l'éditeur, identifiants légaux et hébergement du site codetheorie.ma.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://codetheorie.ma/mentions-legales" },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "/mentions-legales" }],
+    links: [{ rel: "canonical", href: "https://codetheorie.ma/mentions-legales" }],
   }),
   component: MentionsLegales,
 });
 
 function MentionsLegales() {
   return (
-    <LegalLayout title="Mentions légales">
+    <LegalLayout title="Mentions légales du site codetheorie.ma">
       <LegalBlock heading="Éditeur du site">
         <p>
           <strong className="text-finza-ink">{LEGAL.companyName}</strong> — {LEGAL.legalForm}

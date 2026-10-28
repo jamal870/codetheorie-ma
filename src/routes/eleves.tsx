@@ -1,24 +1,25 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { FinzaHeader, FinzaFooter } from "@/components/finza";
-import loginShot from "@/assets/screenshots/01-login.png";
-import registerShot from "@/assets/screenshots/02-register.png";
-import dashboardShot from "@/assets/screenshots/03-dashboard.png";
-import seriesShot from "@/assets/screenshots/04-series.png";
-import quizShot from "@/assets/screenshots/05-quiz.png";
+import loginShot from "@/assets/screenshots/01-login.webp";
+import registerShot from "@/assets/screenshots/02-register.webp";
+import dashboardShot from "@/assets/screenshots/03-dashboard.webp";
+import seriesShot from "@/assets/screenshots/04-series.webp";
+import quizShot from "@/assets/screenshots/05-quiz.webp";
 
 const THEME_COLOR = "#38bdf8";
 
-const TITLE = "Code Theorie — Code de la route Maroc NARSA 2026 (FR + Darija)";
+const PAGE_URL = "https://codetheorie.ma/eleves";
+const TITLE = "Code Theorie — Code de la route Maroc NARSA 2026 (FR/Darija)";
 const DESCRIPTION =
-  "1480 questions NARSA 2026, examens blancs illimités, français + darija, mode hors-ligne. 1 examen blanc gratuit, puis 49 MAD / 6 mois. Sans abonnement, sans carte.";
+  "1480 questions NARSA 2026, examens blancs illimités, français + darija, hors-ligne. 1 examen blanc gratuit, puis 49 MAD / 6 mois. Sans abonnement, sans carte.";
 
 const REGISTER_URL = "https://app.codetheorie.ma/?mode=register";
 
 const NAV = [
   { label: "Fonctionnalités", hash: "features" },
   { label: "Aperçu", hash: "screens" },
-  { label: "Tarifs", hash: "offre" },
+  { label: "Tarif élève", hash: "offre" },
   { label: "FAQ", hash: "faq" },
 ];
 
@@ -108,14 +109,14 @@ export const Route = createFileRoute("/eleves")({
       { name: "keywords", content: "code de la route maroc, NARSA 2026, examen théorique permis maroc, application code route, كود السياقة المغرب, darija" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
-      { property: "og:url", content: "/eleves" },
+      { property: "og:url", content: PAGE_URL },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_MA" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
     ],
-    links: [{ rel: "canonical", href: "/eleves" }],
+    links: [{ rel: "canonical", href: PAGE_URL }],
     scripts: [
       {
         type: "application/ld+json",
@@ -125,9 +126,17 @@ export const Route = createFileRoute("/eleves")({
           name: "Code Theorie",
           applicationCategory: "EducationalApplication",
           operatingSystem: "Web, iOS, Android",
-          url: "https://codetheorie.ma/eleves",
+          url: PAGE_URL,
           description: DESCRIPTION,
+          image: "https://codetheorie.ma/og-codetheorie.jpg",
+          inLanguage: ["fr-MA", "ar-MA"],
           offers: { "@type": "Offer", price: "49", priceCurrency: "MAD", availability: "https://schema.org/InStock" },
+          publisher: {
+            "@type": "Organization",
+            name: "Finza Tech",
+            url: "https://finza.ma",
+            logo: "https://codetheorie.ma/finza-logo.png",
+          },
         }),
       },
       {
