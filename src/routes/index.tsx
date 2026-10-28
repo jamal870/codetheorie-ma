@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { FinzaHeader, FinzaFooter } from "@/components/finza";
 import proDashboard from "@/assets/screenshots/pro-dashboard.webp";
+import { PUBLISHER } from "@/lib/schema";
 
 const SITE_URL = "https://codetheorie.ma";
 const TITLE = "Codetheorie — Logiciel auto-école & code de la route Maroc";
@@ -92,12 +93,7 @@ export const Route = createFileRoute("/")({
             priceCurrency: "MAD",
             availability: "https://schema.org/InStock",
           },
-          publisher: {
-            "@type": "Organization",
-            name: "Finza Tech",
-            url: "https://finza.ma",
-            logo: `${SITE_URL}/finza-logo.png`,
-          },
+          publisher: PUBLISHER,
         }),
       },
       {

@@ -89,7 +89,7 @@ function Page() {
     <GuideLayout
       eyebrow="Candidats"
       title={HEADLINE}
-      intro="L'examen du permis de conduire au Maroc comporte une épreuve théorique (le « code ») puis une épreuve pratique. Ce guide détaille le déroulé de l'épreuve, son coût réel, ce qui dépend de l'auto-école, ce qui dépend de NARSA, et la préparation qui permet de réussir du premier coup."
+      intro="L'examen du permis de conduire au Maroc comporte une épreuve théorique sur le code de la route (le « code ») puis une épreuve pratique. Ce guide détaille le déroulé de l'épreuve, son coût réel, ce qui dépend de l'auto-école, ce qui dépend de NARSA, et la préparation qui permet de réussir le code de la route du premier coup."
       updated={UPDATED}
       cta={{
         label: "Commencer l'entraînement — 49 MAD",
@@ -181,9 +181,9 @@ function Page() {
           </li>
         </ul>
         <p>
-          L'application est décrite en détail sur la page{" "}
+          L'application est décrite en détail sur{" "}
           <Link to="/eleves" className="font-semibold text-finza-brand">
-            Code Theorie
+            la page de l'application Code Theorie
           </Link>
           .
         </p>

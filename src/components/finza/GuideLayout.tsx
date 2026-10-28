@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { FinzaHeader } from "./FinzaHeader";
 import { FinzaFooter } from "./FinzaFooter";
+import { PUBLISHER, SITE_URL } from "@/lib/schema";
 
 export interface GuideFaqItem {
   question: string;
@@ -139,14 +140,6 @@ export function GuideFaq({ items }: { items: GuideFaqItem[] }) {
   );
 }
 
-const SITE_URL = "https://codetheorie.ma";
-const PUBLISHER = {
-  "@type": "Organization",
-  name: "Finza Tech",
-  url: "https://finza.ma",
-  logo: { "@type": "ImageObject", url: `${SITE_URL}/finza-logo.png` },
-};
-
 /** Article schema for a guide (recommended fields: headline, dates, author, publisher, image). */
 export function articleSchema(a: {
   url: string;
@@ -159,7 +152,7 @@ export function articleSchema(a: {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    mainEntityOfPage: { "@type": "WebPage", "@id": a.url },
+    mainEntityOfPage: a.url,
     url: a.url,
     headline: a.headline,
     description: a.description,
@@ -168,7 +161,7 @@ export function articleSchema(a: {
     datePublished: a.modified,
     dateModified: a.modified,
     image: `${SITE_URL}/og-codetheorie.jpg`,
-    author: { "@type": "Organization", name: "Finza Tech", url: "https://finza.ma" },
+    author: PUBLISHER,
     publisher: PUBLISHER,
   };
 }
