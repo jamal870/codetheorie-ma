@@ -93,11 +93,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      // Polices auto-hébergées (public/fonts, déclarées dans styles.css) : aucune requête vers
+      // Google Fonts, donc aucune donnée visiteur transmise à un tiers.
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&display=swap",
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: "/fonts/instrument-sans-latin.woff2",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: "/fonts/syne-latin.woff2",
+        crossOrigin: "anonymous",
       },
     ],
     scripts: [
@@ -109,8 +119,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Finza Tech",
           legalName: "FINZA TECH SARL",
           url: "https://codetheorie.ma",
+          logo: "https://codetheorie.ma/finza-logo.png",
+          image: "https://codetheorie.ma/og-codetheorie.jpg",
+          description:
+            "Éditeur marocain de Code Theorie (entraînement au code de la route NARSA 2026) et de Siya9a Pro (logiciel de gestion d'auto-école).",
           email: "support@finza.ma",
           telephone: "+212661349492",
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "customer support",
+            email: "support@finza.ma",
+            telephone: "+212661349492",
+            availableLanguage: ["fr", "ar"],
+            areaServed: "MA",
+          },
           address: {
             "@type": "PostalAddress",
             streetAddress: "67, rue Chevalier Bayard, 5e étage, n° 16, Belvédère",
@@ -121,7 +143,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             { "@type": "PropertyValue", name: "ICE", value: "003970415000091" },
             { "@type": "PropertyValue", name: "RC", value: "733497" },
           ],
-          sameAs: ["https://finza.ma", "https://siya9apro.ma"],
+          sameAs: ["https://finza.ma", "https://siya9apro.ma", "https://mizan.finza.ma"],
         }),
       },
     ],

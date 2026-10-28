@@ -8,7 +8,9 @@
 
 - `netlify.toml`: `command = "bun install && bun run build"`, `publish = "dist"`, `NODE_VERSION = 20`.
 - `vite.config.ts`: explizite Konfiguration; beim Build erzeugt Nitro mit dem Preset `netlify` die SSR-Funktion unter `.netlify/functions-internal/` und die statischen Dateien unter `dist/`.
-- Sicherheits-Header: in `netlify.toml` (statische Dateien) und `src/server.ts` (SSR-Antworten). Beide müssen gleich bleiben.
+- Sicherheits-Header: in `netlify.toml` (statische Dateien) und `src/server.ts` (SSR-Antworten). Beide Listen bleiben gleich, mit einer Ausnahme: die SSR-CSP setzt pro Anfrage einen Nonce (`script-src 'self' 'nonce-…'`) statt `'unsafe-inline'`; der Nonce wird in `src/server.ts` erzeugt und über den Request-Header `x-csp-nonce` an `getRouter()` (`src/router.tsx`) gereicht.
+- Schriften (Instrument Sans, Syne) liegen unter `public/fonts/` und werden in `src/styles.css` deklariert — keine Google-Fonts-Anfragen mehr.
+- Sicherheitskontakt: `SECURITY.md` und `public/.well-known/security.txt` (RFC 9116). Dependabot: `.github/dependabot.yml`.
 
 ## Hinweise
 
