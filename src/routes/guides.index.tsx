@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FinzaHeader, FinzaFooter, FinzaCard } from "@/components/finza";
+import { CodeTheorieLogo } from "@/components/finza/CodeTheorieLogo";
 import { PUBLISHER } from "@/lib/schema";
 
 const PAGE_URL = "https://codetheorie.ma/guides";
@@ -103,7 +104,7 @@ function GuidesIndex() {
     <div data-product="siya9a-pro" className="flex min-h-screen flex-col bg-finza-paper">
       <FinzaHeader
         product="siya9a-pro"
-        logoUrl="/finza-logo.png"
+        logo={<CodeTheorieLogo />}
         logoTo="/"
         navLinks={[
           { label: "Accueil", to: "/" },

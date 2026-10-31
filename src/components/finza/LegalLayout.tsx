@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { FinzaHeader } from "./FinzaHeader";
+import { CodeTheorieLogo } from "./CodeTheorieLogo";
 import { FinzaFooter } from "./FinzaFooter";
 
 interface LegalLayoutProps {
@@ -12,7 +13,7 @@ interface LegalLayoutProps {
 export function LegalLayout({ title, intro, children }: LegalLayoutProps) {
   return (
     <div data-product="siya9a-pro" className="flex min-h-screen flex-col bg-finza-paper">
-      <FinzaHeader product="siya9a-pro" logoUrl="/finza-logo.png" logoTo="/" hideProductSwitcher />
+      <FinzaHeader product="siya9a-pro" logo={<CodeTheorieLogo />} logoTo="/" hideProductSwitcher />
 
       <main className="flex-1 px-5 py-14 sm:py-20">
         <div className="mx-auto max-w-3xl">

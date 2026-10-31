@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { FinzaHeader } from "./FinzaHeader";
+import { CodeTheorieLogo } from "./CodeTheorieLogo";
 import { FinzaFooter } from "./FinzaFooter";
 import { PUBLISHER, SITE_URL } from "@/lib/schema";
 
@@ -24,7 +25,7 @@ export function GuideLayout({ eyebrow, title, intro, updated, children, cta }: G
     <div data-product="siya9a-pro" className="flex min-h-screen flex-col bg-finza-paper">
       <FinzaHeader
         product="siya9a-pro"
-        logoUrl="/finza-logo.png"
+        logo={<CodeTheorieLogo />}
         logoTo="/"
         navLinks={[
           { label: "Guides", to: "/guides" },

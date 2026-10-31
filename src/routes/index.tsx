@@ -17,6 +17,7 @@ import {
   Video,
 } from "lucide-react";
 import { FinzaHeader, FinzaFooter } from "@/components/finza";
+import { CodeTheorieLogo } from "@/components/finza/CodeTheorieLogo";
 import proDashboard from "@/assets/screenshots/pro-dashboard.webp";
 import { PUBLISHER } from "@/lib/schema";
 
@@ -198,8 +199,7 @@ function LandingPage() {
     <div data-product="siya9a" className="flex min-h-screen flex-col bg-finza-paper">
       <FinzaHeader
         product="siya9a"
-        logoUrl="/finza-logo.png"
-        logoClassName="h-12 w-auto"
+        logo={<CodeTheorieLogo />}
         navLinks={NAV}
         cta={{ label: "Démo gratuite", href: "#ecoles" }}
       />
