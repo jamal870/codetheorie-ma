@@ -14,7 +14,7 @@ const THEME_COLOR = "#38bdf8";
 const PAGE_URL = "https://codetheorie.ma/eleves";
 const TITLE = "Code Theorie — Code de la route Maroc NARSA 2026, darija";
 const DESCRIPTION =
-  "1480 questions NARSA 2026, examens blancs illimités, français + darija, hors-ligne. 1 examen blanc gratuit, puis 49 MAD / 6 mois. Sans abonnement, sans carte.";
+  "1480 questions NARSA 2026, examens blancs illimités, français + darija, hors-ligne. 1 examen blanc gratuit (7 jours), puis 49 MAD / 6 mois. Sans abonnement, sans carte.";
 
 const REGISTER_URL = "https://app.codetheorie.ma/?mode=register";
 
@@ -64,7 +64,7 @@ const SCREENS = [
   { src: quizShot, title: "Une question NARSA officielle", desc: "Photo réelle, choix multiples, bouton « Écouter en darija ». Comprends avant de répondre." },
   { src: seriesShot, title: "37 séries thématiques", desc: "Panneaux, priorités, nuit, autoroute… bosse un thème à la fois." },
   { src: loginShot, title: "Connexion sécurisée", desc: "Email ou numéro marocain. Reste connecté sur tous tes appareils." },
-  { src: registerShot, title: "Inscription en 30 secondes", desc: "Aucune carte bancaire. 1 examen blanc gratuit dès l'inscription." },
+  { src: registerShot, title: "Inscription en 30 secondes", desc: "Aucune carte bancaire. 1 examen blanc gratuit dès l'inscription, valable 7 jours." },
 ];
 
 const COMPARE = [
@@ -90,7 +90,7 @@ const OFFER_FEATURES = [
 
 const FAQS: ReadonlyArray<readonly [string, string]> = [
   ["C'est vraiment 100% conforme NARSA 2026 ?", "Oui. Toutes les 1 480 questions correspondent au format et au contenu exact de l'examen NARSA 2026. Nous travaillons avec des moniteurs marocains certifiés qui vérifient chaque mise à jour."],
-  ["Comment fonctionne l'examen blanc gratuit ?", "Inscription email, pas de carte → 1 examen blanc complet gratuit. Pour les séries, la révision et les examens blancs illimités : 49 MAD / 6 mois, par virement, reçu sur WhatsApp."],
+  ["Comment fonctionne l'examen blanc gratuit ?", "Inscription email, pas de carte → 1 examen blanc complet gratuit, valable 7 jours après l'inscription ou jusqu'à ce que tu l'aies passé (selon ce qui arrive en premier). Pour les séries, la révision et les examens blancs illimités : 49 MAD / 6 mois, par virement, reçu sur WhatsApp."],
   ["Combien coûte l'accès complet ?", "49 MAD / 6 mois. Pas d'abonnement, pas de renouvellement automatique. Paiement par virement ou Wafacash, reçu sur WhatsApp."],
   ["Comment je paye ?", "Par virement bancaire ou Wafacash, puis tu nous envoies le reçu sur WhatsApp. C'est la méthode principale. Carte bancaire marocaine (CMI) disponible en option via YouCan Pay."],
   ["Est-ce que ça marche sans internet ?", "Oui. Après la première ouverture, 3,7 Mo sont mis en cache (les 1 480 images incluses). Tu peux réviser dans le tram, le taxi, en dehors de la ville. Tout se synchronise dès que le wifi revient."],
@@ -194,7 +194,7 @@ function ElevesPage() {
                   href={REGISTER_URL}
                   className="inline-flex items-center justify-center rounded-full bg-finza-brand px-7 py-4 text-[15px] font-extrabold text-finza-brand-ink shadow-[var(--finza-shadow-brand)] transition-transform hover:scale-[1.02]"
                 >
-                  🚀 1 examen blanc gratuit — sans carte
+                  🚀 1 examen blanc gratuit — 7 jours, sans carte
                 </a>
                 <a
                   href="#offre"
@@ -373,9 +373,12 @@ function ElevesPage() {
               {/* Trial card */}
               <div className="rounded-3xl border-2 border-dashed border-finza-brand bg-finza-brand-soft p-8">
                 <div className="text-[12px] font-extrabold uppercase tracking-[1.5px] text-finza-brand">
-                  🎁 1 examen blanc gratuit
+                  🎁 1 examen blanc gratuit · 7 jours
                 </div>
                 <div className="mt-3 text-[42px] font-black leading-none text-finza-ink">Gratuit · 1 examen blanc</div>
+                <p className="mt-2 text-[13px] text-finza-ink-soft">
+                  Valable 7 jours après l'inscription ou jusqu'à ce que tu l'aies passé, selon ce qui arrive en premier.
+                </p>
                 <ul className="mt-6 space-y-2.5 text-[15px]">
                   {[
                     "1 examen blanc complet gratuit",
@@ -491,7 +494,7 @@ function ElevesPage() {
               Prêt à passer NARSA en 3 semaines ?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[15px] opacity-90">
-              Crée ton compte en 30 secondes. 1 examen blanc gratuit pour tester. Aucune carte.
+              Crée ton compte en 30 secondes. 1 examen blanc gratuit pour tester, valable 7 jours. Aucune carte.
             </p>
             <a
               href={REGISTER_URL}
