@@ -608,10 +608,11 @@ function CandidatsSection() {
               49 MAD
             </p>
             <p className="mt-2 text-[14px] font-semibold text-finza-brand">
-              Paiement unique, accès complet
+              Paiement unique, 6 mois d'accès complet
             </p>
             <p className="mt-1 text-[13px] text-finza-ink-soft">
-              Tarif officiel unique. Aucun abonnement, aucune formule à 6 mois.
+              Aucun abonnement, aucun renouvellement automatique. L'examen blanc gratuit est valable 7 jours
+              après l'inscription ou jusqu'à ce que tu l'aies passé.
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <Link
