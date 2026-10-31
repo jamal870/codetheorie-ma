@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { FinzaHeader, FinzaFooter } from "@/components/finza";
+import { CodeTheorieLogo } from "@/components/finza/CodeTheorieLogo";
 import loginShot from "@/assets/screenshots/01-login.webp";
 import registerShot from "@/assets/screenshots/02-register.webp";
 import dashboardShot from "@/assets/screenshots/03-dashboard.webp";
@@ -161,8 +162,7 @@ function ElevesPage() {
     <div data-product="siya9a" className="flex min-h-screen flex-col bg-finza-paper">
       <FinzaHeader
         product="siya9a"
-        logoUrl="/finza-logo.png"
-        logoClassName="h-12 w-auto"
+        logo={<CodeTheorieLogo />}
         navLinks={NAV}
         cta={{ label: "🚀 1 examen blanc gratuit", href: REGISTER_URL }}
         logoTo="/"
